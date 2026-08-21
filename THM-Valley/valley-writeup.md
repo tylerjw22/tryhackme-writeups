@@ -5,7 +5,7 @@ This TryHackMe CTF only provided a single target IP address and nothing more.
 ### Starting the CTF
 I started by using a nmap scan on the targets ip and found a http server running, after visiting it i used gobuster on it and found some other directories, i then used gobuster again on the directory /static and found another directory /static/00 which had some important information on it: 
 
-
+![Image0](images/image0.png)
 
 Then after vising /dev1243224123123 i found a login page: 
 
