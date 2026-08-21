@@ -9,7 +9,8 @@ I started by doing an nmap scan on the targets ip and found they have http open 
 
 ![Image0](images/image0.png)
 
-Since i have a text input box that converts what i type into a different format i suspected i would need to use xss (cross-site scripting). Then i tested for java xss with a typical alert command and it didnt work, so then i tested for html xss and it worked since you can see the headers are different sizes in the document which means the code i put in was read and executed by the website. Heres the html i used: ```html
+Since i have a text input box that converts what i type into a different format i suspected i would need to use xss (cross-site scripting). Then i tested for java xss with a typical alert command and it didnt work, so then i tested for html xss and it worked since you can see the headers are different sizes in the document which means the code i put in was read and executed by the website. Heres the html i used: 
+```html
 <h1>hello</h1>
 <h2>hello</h2>
 ```
