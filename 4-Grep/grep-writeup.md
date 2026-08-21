@@ -72,7 +72,7 @@ However the code that confirms what the files are doesn't check the file extensi
 So i started by making a copy of the `shell.php` file on my desktop, then i manually added some newlines at the start so i can overwrite these bytes with the bytes that the post form expects for the jpg file which is `ffd8ffe0`. I then used this command to convert the php shell into a hex dump in txt format: 
 `xxd /home/kali/Desktop/shell.php > /home/kali/Desktop/shell.txt`
 
-I then edited this txt file and removed the first 8 bytes which were all “0a” (newline character) and replaced them with `ff d8 ff e0`. I then converted the file back to a php with this command: `xxd -r /home/kali/Desktop/shell.txt > /home/kali/Desktop/shell2.php`
+I then edited this txt file and removed the first 4 bytes which were all “0a” (newline character) and replaced them with `ff d8 ff e0`. I then converted the file back to a php with this command: `xxd -r /home/kali/Desktop/shell.txt > /home/kali/Desktop/shell2.php`
 
 The -r flag stands for reverse, as it reverses the raw bytes back into a php file.
 
