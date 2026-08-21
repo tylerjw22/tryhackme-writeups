@@ -1,4 +1,4 @@
-### Valley CTF write up
+### Valley CTF Writeup
 https://tryhackme.com/room/valleype
 
 
