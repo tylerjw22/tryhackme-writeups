@@ -89,7 +89,7 @@ I then used these commands so that the terminal session would be more interactiv
 
 Then i used this command: `cat /etc/passwd | grep bash` to locate any users on the computer:
 
-- This command filters the /etc/passwd file by the word "bash", as mot users have bash as their login shell, therefore it will not display random system and service accounts that arent real human users.
+- This command filters the /etc/passwd file by the word "bash", as most users have bash as their login shell, therefore it will not display random system and service accounts that aren't real human users.
 
 ![Image11](images/image11.png)
 
