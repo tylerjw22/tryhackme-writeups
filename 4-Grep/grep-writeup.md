@@ -67,7 +67,7 @@ This confirms that the uploads are sent to the `/upload` directory after being u
 - png
 - bmp
 
-However the code that confirms what the files are doesn't check the file extensions at all but instead the first 4 bytes of each file. So i have a hunch that i just need to edit the first 4 bytes of my malicious php webshell script (p0wny shell) and it should allow my file to be uploaded to the server. 
+However the code that confirms what the files are doesn't check the file extensions or the mime-type at all but instead the first 4 bytes of each file. So i have a hunch that i just need to edit the first 4 bytes of my malicious php webshell script (p0wny shell) and it should allow my file to be uploaded to the server. 
 
 So i started by making a copy of the `shell.php` file on my desktop, then i manually added some newlines at the start so i can overwrite these bytes with the bytes that the post form expects for the jpg file which is `ffd8ffe0`. I then used this command to convert the php shell into a hex dump in txt format: 
 `xxd /home/kali/Desktop/shell.php > /home/kali/Desktop/shell.txt`
