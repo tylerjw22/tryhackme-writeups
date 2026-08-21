@@ -58,6 +58,8 @@ I then saved these to a file and used a hash type identifier website to find the
 Then i used this command with john to crack them:
 
 
+![Image7](images/image7.png)
+
 And as you can see i got both the username and password valley and liberty123
 
 Now i can ssh into that account and explore what my privilege escalation options are.
@@ -65,16 +67,16 @@ Now i can ssh into that account and explore what my privilege escalation options
 
 I used the command cat /etc/crontab and found this:
 
-![Image7](images/image7.png)
+![Image8](images/image8.png)
 
 The bottom command is a python script being auto run every minute by the root user, this is a highly likely suspect on a CTF, this means if i can somehow inject a reverse shell in this python script i will have access as the root user of the computer.
 
 Unfortunately I cant write to this script. But after cat-ing the python script being run i found out that it imports a library called base64 which after using this command i found out i can write to it:
 
-![Image8](images/image8.png)
+![Image9](images/image9.png)
  
 The next part was simple, all I did was import os and put a reverse shell in the library while a listener was running on my attacking machine and I got access to the root user:
 
-![Image9](images/image9.png)
+![Image10](images/image10.png)
 
 I then used ls to view the root users home folder and found the final flag!
