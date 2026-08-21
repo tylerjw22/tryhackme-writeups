@@ -9,17 +9,17 @@ I started by using a nmap scan on the targets ip and found a http server running
 
 Then after vising /dev1243224123123 i found a login page: 
 
-
+![Image1](images/image1.png)
 
 After entering a few logins and monitoring the network tab in devtools, i got suspicious that nothing was appearing meaning the logins are all handled locally within the website instead of being confirmed within a server, so i checked debugger - sources in dev tools and looked through the js for dev.js and found this: 
 
-
-
+![Image2](images/image2.png)
 
 So i just copied the devNotes directory and put it in the url bar (it was faster than logging in)
 
 And heres what i found on that directory:
 
+![Image3](images/image3.png)
 
 So now i know that some of their credentials are the same so siemDev may be the username and california may be the password for multiple accounts, and that their ftp port is not on the normal port (which is 21)
 
@@ -32,9 +32,7 @@ And when it asked me for a username i put in siemDev and the password was califo
 
 I then found some pcap files and downloaded them with the get command and then put them into wireshark, i searched for http and in the siemHTTP2.pcapng file i found a post form with this in them: 
 
-
-
-
+![Image4](images/image4.png)
 
 For some reason i put this into ssh and it worked (idk why this would work on ssh)
 
@@ -51,9 +49,11 @@ After looking it up i found out that UPX stands for ultimate packer for executab
 
 Then after using this cat command paired with a grep command i located some interesting looking hashes above the username and password inputs:
 
+![Image5](images/image5.png)
 
 I then saved these to a file and used a hash type identifier website to find the type of hash they are:
 
+![Image6](images/image6.png)
 
 Then i used this command with john to crack them:
 
@@ -65,17 +65,16 @@ Now i can ssh into that account and explore what my privilege escalation options
 
 I used the command cat /etc/crontab and found this:
 
+![Image7](images/image7.png)
 
 The bottom command is a python script being auto run every minute by the root user, this is a highly likely suspect on a CTF, this means if i can somehow inject a reverse shell in this python script i will have access as the root user of the computer.
 
 Unfortunately I cant write to this script. But after cat-ing the python script being run i found out that it imports a library called base64 which after using this command i found out i can write to it:
 
-
+![Image8](images/image8.png)
  
 The next part was simple, all I did was import os and put a reverse shell in the library while a listener was running on my attacking machine and I got access to the root user:
 
+![Image9](images/image9.png)
 
-I then used ls to view the root users home folder and found the final flag:
-THM{v@lley_0f_th3_sh@d0w_0f_pr1v3sc}
-
-I did need to search up the final python part however i was so close to discovering it myself, i found the suspicious cron tab before i had access to valley so when i got access to valley i forgot about it. And i had used a reverse shell on a python library imported into a python script before so it was just a matter of time before i figured it out myself anyways.
+I then used ls to view the root users home folder and found the final flag!
