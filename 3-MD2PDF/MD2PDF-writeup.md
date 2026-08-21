@@ -1,4 +1,4 @@
-### MD2PDF CTF
+### MD2PDF CTF Writeup
 https://tryhackme.com/room/md2pdf
 
 ### Overview
