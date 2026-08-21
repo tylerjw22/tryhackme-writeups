@@ -1,4 +1,4 @@
-### Basic Pentesting CTF
+### MD2PDF CTF
 https://tryhackme.com/room/md2pdf
 
 ### Overview
