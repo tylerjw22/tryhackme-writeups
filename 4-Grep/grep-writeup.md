@@ -84,8 +84,8 @@ And i added some random characters at the start of the script, so i could theref
 ![Image10](images/image10.png)
 
 I then used these commands so that the terminal session would be more interactive and more of a “real” terminal: 
-`/usr/bin/script -qc /bin/bash /dev/null
-export TERM=xterm-color`
+`/usr/bin/script -qc /bin/bash /dev/null`
+`export TERM=xterm-color`
 
 Then i used this command: `cat /etc/passwd | grep bash` to locate any users on the computer:
 
