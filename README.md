@@ -1,3 +1,7 @@
-This repo contains all of my TryHackMe CTF write-ups and documents my journey to becoming better in cybersecurity and pentesting.
+# TryHackMe CTF Write-ups
 
-The CTFs are numbered based on the order in which I completed them (1 being my first CTF challenge), and include proper md formatting and images.
+This repository contains my **TryHackMe CTF write-ups**, documenting my journey of developing practical skills in **cybersecurity and penetration testing**.
+
+## About
+
+The CTFs are numbered in the order I completed them, with **1 being my first challenge**. Each write up includes detailed explanations, commands, methodology, and screenshots where relevant.
