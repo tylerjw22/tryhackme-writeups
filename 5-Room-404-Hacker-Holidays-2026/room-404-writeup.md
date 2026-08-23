@@ -43,11 +43,11 @@ Then i used `cd ..` to get to the parent folder of the .git folder and used this
 
 As you can see 3 files are reported as deleted, (really all it means is they aren't synced with the official .git repo because i never downloaded them i only downloaded what was inside .git and the actual build files are outside of .git in the parent folder)
 
-So i used: git restore . to restore all the files, and then as you can see it worked.
+So i used: `git restore .` to restore all the files, and then as you can see it worked:
 
 ![Image5](images/image5.png)
 
-Then i used cat README.md and found the flag!
+Then i used cat README.md and found the flag and completed the CTF!
 
 
 
