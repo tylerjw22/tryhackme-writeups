@@ -16,7 +16,7 @@ Heres a GET request that is sent by `192.168.1.141:50419` and the response is fr
 
 After using the statistics tab > conversations in wireshark. I found that these 2 addresses talk a lot and always in 10 to 16 packet conversations, could also be suspicious.
 
-After rereading over the python file and asking chatgpt, turns out its malware. A keylogger running and sending one get request per keystroke it picks up. First it monitors the keystrokes, then when it receives one it encodes it with xor , which takes a key `(H0t3lSt@ff0NlyK3epS3cr3t!)` and the key pressed and follows the XOR rules to alter the bytes, then it encodes it with base64 (which all this does is turn the raw byte outputted from XOR into readable letter/s, even though it was originally 1 letter base64 may output 4 characters), then it sends it in a http request hidden in a cookie `(hotel_sess_state)`.
+After rereading over the python file and asking chatgpt, turns out its malware. A keylogger running and sending one get request per keystroke it picks up. First it monitors the keystrokes, then when it receives one it encodes it with xor , which takes a key `(H0t3lSt@ff0NlyK3epS3cr3t!)` and the key pressed and follows the XOR rules to alter the bytes, then it encodes it with base64 (which all this does is turn the raw byte outputted from XOR into readable letter/s, even though it was originally 1 character base64 may output 4 characters), then it sends it in a http request hidden in a cookie `(hotel_sess_state)`.
 
 So all i need to do is find all the http requests that have a `hotel_sess_state` cookie and then decode the base64 and XOR encoding of all the characters. To first get all the http requests with the cookies i constructed this console command:
 
