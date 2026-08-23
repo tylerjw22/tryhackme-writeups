@@ -31,7 +31,7 @@ I then clicked on the links and they all lead to error 404 pages so i had to use
 (i had to do them all individually)
 
 After i downloaded them i had a look through almost every single file, attempted to crack some hashes and failed finding anything important with those methods however after some research i found that i can use actual git commands on this .git file instead of just normal folder exploring commands like `ls` and `cd`, so i went to the git folder and used: 
-`git ls-files --stage`
+`git ls-files --stage` (this command lists the files currently tracked by git in the index file and the staging information)
 
 ![Image3](images/image3.png)
 
