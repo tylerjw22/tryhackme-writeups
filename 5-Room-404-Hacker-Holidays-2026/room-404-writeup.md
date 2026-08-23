@@ -37,7 +37,7 @@ After i downloaded them i had a look through almost every single file, attempted
 
 I then found out that there was 3 files that i didnt have access to (this command doesnt list files in the current directory, it lists files that have actually been indexed in the index file)
 
-Then i used `cd ..` to get to the parent folder of the .git folder and used this command to check if the files i saw in index are missing from my git session: git status
+Then i used `cd ..` to get to the parent folder of the .git folder and used this command to check if the files i saw in index are missing from my git session: `git status`
 
 ![Image4](images/image4.png)
 
