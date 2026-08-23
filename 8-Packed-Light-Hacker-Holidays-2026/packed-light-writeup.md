@@ -1,4 +1,4 @@
-### Packet Light CTF Writeup
+### Packed Light CTF Writeup
 https://tryhackme.com/room/hh-packedlight-02e5330c
 
 
