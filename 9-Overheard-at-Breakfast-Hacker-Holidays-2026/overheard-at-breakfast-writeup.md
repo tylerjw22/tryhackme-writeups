@@ -20,8 +20,10 @@ So i used this command to hash his email: `echo -n 'lambobytelotushotel@gmail.co
 How this command works:
 - `echo -n` - `echo` outputs the following string in the quotations to the terminal and `-n` removes the newline that is typically added
 - `|` - the pipe symbol is used to send the output of echo to the following command which is `md5sum` instead of outputting it to the terminal
-- `md5sum` - this command hashes the received string in md5 format and outputs the result in the terminal
+- `md5sum` - this command hashes the received string in md5 format and outputs the result in the terminal.
+
 The reason we cant just do something like `md5 "[email]"` is because md5 expects a file and it will interpret the quotations as the literal file name, so we get around it by using the pipe command and echo which pipes the `stdout` from echo to the `stdin` of md5.
+
 Heres the resulting hash:
 
 ![Image1](images/image1.png)
