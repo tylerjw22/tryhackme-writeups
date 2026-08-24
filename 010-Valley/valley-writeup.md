@@ -38,7 +38,7 @@ I then found some pcap files and downloaded them with the `get` command and then
 
 ![Image4](images/image4.png)
 
-So as a random hunch i put this into ssh and it worked
+So after some trial and error i put it into ssh and it worked.
 
 Then in their home directory i read a file named user.txt and found the first flag of 2 flags.
 
