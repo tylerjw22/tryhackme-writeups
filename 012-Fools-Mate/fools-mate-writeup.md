@@ -10,7 +10,7 @@ All the CTF provided was an address to a webpage: `http://MACHINE_IP`, With the 
 
 Heres the interface i was met with:
 
-![[012-Fools-Mate/images/image0.png]]
+![[images/image0.png]]
 
 The first thing i tried was just playing the game like normal, when i was about to checkmate the king i got this message:
 
