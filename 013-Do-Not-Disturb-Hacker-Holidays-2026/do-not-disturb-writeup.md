@@ -33,6 +33,7 @@ I usually start with this `nmap` scan as its fast and covers a lot of the basic 
 | ---- | ----- | ------- | ------------------- |
 | 22   | open  | SSH     | [9.6.1]             |
 | 80   | open  | HTTP    | [Node.js (Express)] |
+
 When i visited the site heres what im greeted with:
 
 ![image0](images/image0.png)
@@ -51,14 +52,14 @@ gobuster dir -u http://[target_ip] -w /usr/share/wordlists/dirbuster/directory-l
 
 Heres what i got:
 
-![image1](image1.png)
+![image1](images/image1.png)
 
 The staff pages may come in handy later but for now i cannot access them.
 Perhaps later i will attempt another enumeration scan with a bigger wordlist but for now i will look for other options.
 
 ## 2. NoSQL Injection
 
-After some reasearch on `node.js express` hosted websites i learned that its not uncommon for them to be vulnerable to something called `NoSQL Injection`. Which is just the same idea as `SQL Injection` but without using `SQL`. So in burp suite i captured a `post request` from the login form, send it to the repeater and changed the post requests username and password field from this:
+After some reasearch on `node.js express` hosted websites i learned that its not uncommon for them to be vulnerable to something called `NoSQL Injection`. Which is just the same idea as `SQL Injection` but without using `SQL`. So in burp suite i captured a `post request` from the login form, sent it to the repeater and changed the post requests username and password field from this:
 ```
 username=attendant&password=pass123
 ```
@@ -209,7 +210,7 @@ And it worked, i sucessfully got a reverse shell as the user `pipelinesvc`.
 
 ## 6. Disk Group Abuse
 
-I then tried a bit of enumeration to see if there is anything interesting in the home directory or if i can locate the root.txt file yet but i found nothing.
+I then tried a bit of enumeration to see if there is anything interesting in the home directory or if i can locate the `root.txt` file yet but i found nothing.
 
 However after checking `groups` i found this user was in the `disk` group which is significant because i may be able to bypass normal file permissions and access the `root.txt` file which is most likely in the`/root` directory that i cant access.
 
