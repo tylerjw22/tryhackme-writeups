@@ -24,6 +24,7 @@ nmap -sV [target_ip]
 ```
 
 I found 3 ports opened:
+
 ![image0](images/image0.png)
 
 | Port | Service    |
@@ -39,6 +40,7 @@ The jetdirect service is one ill have to look into more later but for now i deci
 The website had some information on it that i discovered was `json` data fetched from the `/status` directory.  At the bottom of the webpage there's an option to download the jackpot service tool.
 ## 3. Inspecting the downloaded file
 ![image2](images/image2.png)
+
 After downloading it i used the `file` command on it to see what type of file it is. Since its an ELF file (Executable and linkable format) i have to give it executable permissions to run it:
 
 ![image3](images/image3.png)
@@ -64,6 +66,7 @@ It says it's an XFS bridge for the ATM and Its telling me the rules for communic
 | 2nd            | 4        | big-endian command id |
 | 3rd            | 2        | big-endian [length]   |
 | 4th (optional) | [length] | bytes of JSON         |
+
 Big-endian is the order in which to write the bytes, it means the most significant bytes first (the bytes that represent the highest numbers). The most significant bytes will always be the first bytes just like in a number like 153 - 1 represents 100, 5 represents 50 and 3 represents 3. The number 1 is most significant as it represents the highest amount of the total number.
 
 The processes output also contained some commands and their correlated byte identifers:
@@ -72,6 +75,7 @@ The processes output also contained some commands and their correlated byte iden
 | ------------ | --------------- | ------------------- |
 | GETINFO      | `0x01`          | Request information |
 | EXECUTE      | `0x02`          | Submit a command    |
+
 Lastly the output also gave us a hint to use the `getinfo` message type with the query command which is `0x0304`.
 
 So the final string I constructed looks like this:
