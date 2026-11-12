@@ -39,14 +39,18 @@ nc -nv [target_ip] 5020
 I got no response at all not even a process name, and every time i typed something it quit instantly.
 ## 2. Logging into ScadaBR
 So i continued to check out the website on port 8080 and it led me to a `ScadaBR` login page:
-![[017-Brr/images/image0.png]]
+
+![image0](images/image0.png)
 
 ScadaBR is used for industrial monitoring of OT (Operational Technology) equipment and allows users to view and manage data and equipment via the web page. After some researching i discovered that ScadaBR has default credentials that sometimes people forget to change. So i logged in with the username `admin` and the password `admin`, and it worked. After logging in it took me to the dashboard:
-![[017-Brr/images/image1.png]]
+
+![image1](images/image1.png)
 
 ## 3. Finding the data sources
 After clicking around a bit i found the data sources section which lists a data source named "secret" that lists its "Connection" as "plc:5020". This is suspicious and it explains what the "zenginkyo-1" process on port 5020 is (zenginkyo-1 is just Nmaps guess at what the process is based on the port number, the process actually has nothing to do with zenginkyo-1):
-![[017-Brr/images/image2.png]]
+
+![image2](images/image2.png)
+
 ## 4. Contacting the PLC with the Modbus Protocol
 So after assuming that i have to contact the port 5020 and communicate via the Modbus Protocol, i downloaded a CLI tool that could do this called `mbpoll`, and used this command:
 ```
@@ -58,11 +62,13 @@ What the command flags do:
 So this command is essentially contacting the targets IP on port 5020 and establishing a TCP connection, it then sends a Modbus request that asks for the information contained in the first 20 data registers, then displays those values back to me in the terminal.
 
 Heres what the resulting values were:
-![[017-Brr/images/image3.png]]
+
+![image3](images/image3.png)
 
 ## 5. Finding the final flag
 After entering these decimal digits into a decimal to ascii converter it revealed the final flag:
-![[017-Brr/images/image4.png]]
+
+![image4](images/image4.png)
 
 ## Conclusion
 This was a short but fun CTF challenge which required these skills to complete:
